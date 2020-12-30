@@ -71,6 +71,10 @@ class TPPiramid(TPTriangle):
     @property
     def v(self):
         return super().square() * self.h / 3
+    
+    @property
+    def h(self):
+        return self.__h
 
     @h.setter
     def h(self,value):
@@ -80,13 +84,13 @@ class TPPiramid(TPTriangle):
             self.__h = value
 
     def __add__(self, other):
-        return TPTriangle(self.a + other.a,self.b + other.b,self.h + self.h)
+        return TPPiramid(self.a + other.a,self.b + other.b,self.h + other.h)
 
     def __mul__(self, other):
-        return TPTriangle(self.a * other.a,self.b * other.b,self.h * self.h)
+        return TPPiramid(self.a * other.a,self.b * other.b,self.h * other.h)
 
     def __sub__(self, other):
-        return TPTriangle(self.a - other.a,self.b - other.b,self.h - self.h)
+        return TPPiramid(self.a - other.a,self.b - other.b,self.h - other.h)
 
     def volume(self):
         return self.v
