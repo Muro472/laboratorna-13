@@ -16,7 +16,7 @@ class TPTriangle:
         return self.a * self.b / 2
 
     @a.setter
-    def set_a(self,value):
+    def a(self,value):
         value = int(value)
         if value <= 0:
             raise Exception('error')
@@ -24,7 +24,7 @@ class TPTriangle:
             self.__a = value
 
     @b.setter
-    def set_b(self,value):
+    def b(self,value):
         if value <= 0:
             raise Exception('error')
         else:
@@ -72,19 +72,19 @@ class TPPiramid(TPTriangle):
     def v(self):
         return super().square() * self.h / 3
 
-    @d.setter
-    def set_d(self,value):
+    @h.setter
+    def h(self,value):
         if value <= 0:
             raise Exception('error')
         else:
-            self.__d = value
+            self.__h = value
 
     def volume(self):
         return self.v
 
     def __lt__(self, other):
         return self.v < other.v
-
+    
     def __eq__(self, other):
         return self.v == other.v
 
