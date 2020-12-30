@@ -37,13 +37,13 @@ class TPTriangle:
         return self.a + self.b + (self.a ** 2 + self.b ** 2) ** 0.5
 
     def __add__(self, other):
-        return self.a + other
+        return TPTriangle(self.a + other.a,self.b + other.b)
 
     def __mul__(self, other):
-        return self.a * other
+        return TPTriangle(self.a * other.a,self.b * other.b)
 
     def __sub__(self, other):
-        return self.a - other
+        return TPTriangle(self.a - other.a,self.b - other.b)
 
     def __lt__(self, other):
         return self.s < other.s
@@ -78,6 +78,15 @@ class TPPiramid(TPTriangle):
             raise Exception('error')
         else:
             self.__h = value
+
+    def __add__(self, other):
+        return TPTriangle(self.a + other.a,self.b + other.b,self.h + self.h)
+
+    def __mul__(self, other):
+        return TPTriangle(self.a * other.a,self.b * other.b,self.h * self.h)
+
+    def __sub__(self, other):
+        return TPTriangle(self.a - other.a,self.b - other.b,self.h - self.h)
 
     def volume(self):
         return self.v
